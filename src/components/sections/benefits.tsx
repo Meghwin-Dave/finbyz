@@ -39,57 +39,60 @@ function AnimatedCounter({ end, suffix, className }: AnimatedCounterProps) {
   );
 }
 
+// Palette
+const palette = [
+  { iconBg: "#1A5276", iconColor: "#fff" },      // Blue
+  { iconBg: "#FF8C00", iconColor: "#fff" },      // Orange
+  { iconBg: "#1A5276", iconColor: "#fff" },      // Blue
+  { iconBg: "#FF8C00", iconColor: "#fff" },      // Orange
+  { iconBg: "#1A5276", iconColor: "#fff" },      // Blue
+];
+
 const benefits = [
   { 
     number: 10, 
     suffix: "+", 
     label: "Years of Proven Experience",
     icon: Award,
-    gradient: "from-[#1A5276] to-[#2E86AB]"
+    palette: palette[0]
   },
   { 
     number: 200, 
     suffix: "%", 
     label: "Efficiency Gains with Our Solutions",
     icon: TrendingUp,
-    gradient: "from-[#FF8C00] to-[#FFA500]"
+    palette: palette[1]
   },
   { 
     number: 12, 
     suffix: "+", 
     label: "Countries Served",
     icon: Globe,
-    gradient: "from-[#1A5276] to-[#3498DB]"
+    palette: palette[2]
   },
   { 
     number: 60, 
     suffix: "%", 
     label: "Team Deployment Rate with 3X ROI",
     icon: Users,
-    gradient: "from-[#FF8C00] to-[#FFB84D]"
+    palette: palette[3]
   },
   { 
     number: 100, 
     suffix: "+", 
     label: "Projects Delivered with Precision",
     icon: Target,
-    gradient: "from-[#1A5276] to-[#2E86AB]"
+    palette: palette[4]
   }
 ];
 
 export default function Benefits() {
   return (
-    <section className="py-20 bg-gradient-to-br from-[#1A5276] via-[#2E86AB] to-[#3498DB] text-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-      
-      {/* Floating Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
-      <div className="absolute bottom-20 right-10 w-32 h-32 bg-[#FF8C00]/20 rounded-full blur-xl"></div>
-      
+    <section className="py-20 bg-[#1A5276] text-white relative overflow-hidden">
+      {/* No gradients, just a solid blue background */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Why Choose Finbyz
           </h2>
           <p className="text-xl text-blue-100">
@@ -104,9 +107,14 @@ export default function Benefits() {
               className="text-center animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20">
-                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 mx-auto bg-gradient-to-br ${benefit.gradient} shadow-lg`}>
-                  <benefit.icon className="w-8 h-8 text-white" />
+              <div className="bg-white/10 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20">
+                <div
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-lg"
+                  style={{
+                    background: benefit.palette.iconBg,
+                  }}
+                >
+                  <benefit.icon className="w-8 h-8" style={{ color: benefit.palette.iconColor }} />
                 </div>
                 
                 <AnimatedCounter
@@ -126,9 +134,9 @@ export default function Benefits() {
         <div className="text-center mt-16 animate-fade-in-delayed">
           <Button 
             size="lg"
-            className="bg-gradient-to-r from-[#FF8C00] to-[#FFA500] text-white hover:from-[#FFA500] hover:to-[#FFB84D] text-lg px-8 py-4 h-auto transform hover:scale-105 transition-all shadow-lg hover:shadow-xl"
+            className="bg-[#FF8C00] text-white hover:bg-[#e07c00] text-lg px-8 py-4 h-auto transform hover:scale-105 transition-all shadow-lg"
           >
-            Let's Build That Efficiency →
+            Let&apos;s Build That Efficiency &rarr;
           </Button>
         </div>
       </div>
